@@ -1,0 +1,14 @@
+.main{
+  height: 300px;
+  overflow-y: scroll;
+  width: 700px;
+  align-content: center;
+  margin-top: 50px;
+  margin-left:100px ;
+  border: solid;
+}
+
+.table{
+
+  
+}
