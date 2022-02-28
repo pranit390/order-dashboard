@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import '../css/App.css'
 import { useEffect,useState } from 'react';
 import file from '../csv/seedData.csv'
@@ -38,11 +37,18 @@ if(e.target.className==="btn btn-outline-secondary all-items"){
   setPincode('')
 }
 if(e.target.className==="btn btn-outline-secondary sort-pincode"){
-setTabledata(tabledata.sort((a,b) => (a.deliveryPincode > b.deliveryPincode) ? 1 : ((b.deliveryPincode > a.deliveryPincode) ? -1 : 0)));
-console.log(tabledata);
+  let temp=[...tabledata]
+temp.sort((a,b) => (a.deliveryPincode > b.deliveryPincode) ? 1 : ((b.deliveryPincode > a.deliveryPincode) ? -1 : 0))
+setTabledata(temp)
 }
 if(e.target.className==="btn btn-outline-secondary sort-order"){
-  setTabledata(tabledata.sort());
+  let temp1=[...tabledata]
+  temp1.sort((a,b) =>{
+    let d1 = new Date(a.orderDate);
+    let d2 = new Date(b.orderDate);
+     return d1.valueOf()-d2.valueOf(); 
+  })
+  setTabledata(temp1)
 }
 
 
